@@ -1,0 +1,1373 @@
+/* ========================================
+   ABYSS — GLOBAL STYLES
+   Developed by Synth Ocean
+======================================== */
+
+
+@font-face {
+    font-family: "Inter";
+    src: url("../public/font/inter/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../public/font/inter/Inter-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../public/font/inter/Inter-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../public/font/inter/Inter-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fraunces";
+    src: url("../public/font/fraunces/Fraunces-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --primary-color: #030c13;
+    --secondary-color: #006dff;
+    --white: #FFFFFF;
+    --black: #000000;
+    --font-primary: "Inter", sans-serif;
+    --font-secondary: "Fraunces", serif;
+    --container-width: 1240px;
+    --header-height: 88px;
+    --section-spacing: 110px;
+    --border-color: rgba(255, 255, 255, 0.16);
+    --transition: 0.3s ease;
+
+    --gap-30: 30px;
+
+    --linear-gradient: linear-gradient( to bottom, var(--primary-color) 0%, var(--black) 100% );
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--primary-color);
+    color: var(--white);
+    font-family: var(--font-primary);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.wrap {
+    width: min(calc(100% - 64px), var(--container-width));
+    margin-inline: auto;
+}
+
+.section-pad {
+    padding-block: var(--section-spacing);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+h1 em,
+h2 em {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+}
+
+/* HEADER */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-height);
+    padding-inline: max(32px, calc((100% - var(--container-width)) / 2));
+    background: transparent;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.brand-mark {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    font-family: var(--font-secondary);
+    font-size: 24px;
+}
+
+.brand small {
+    display: block;
+    margin-top: 3px;
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-30);
+}
+
+.main-nav a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    transition: color var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--white);
+}
+
+.main-nav a.active::after {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+    left: 0;
+    height: 1px;
+    background: var(--secondary-color);
+    content: "";
+}
+
+.main-nav .nav-contact {
+    padding: 11px 19px;
+    border: 1px solid var(--secondary-color);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 18px;
+    height: 1px;
+    margin: 5px auto;
+    background: var(--white);
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 720px;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(7, 23, 37, 0.15) 35%,
+            rgba(7, 23, 37, 0.65) 50%,
+            var(--primary-color) 100%
+        ),
+        url("../public/image/01-photo.webp");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-block: 100px;
+}
+
+.hero h1 {
+    margin-top: 28px;
+    font-size: clamp(76px, 10vw, 142px);
+    letter-spacing: -7px;
+    font-family: var(--font-primary);
+    font-weight: 800;
+}
+
+.hero h1 em {
+    color: var(--secondary-color);
+    font-style: normal;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.hero-copy {
+    max-width: 480px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-30);
+    margin-top: 20px;
+}
+
+/* BUTTONS */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0 25px;
+    font-size: 11px;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition);
+}
+
+.button-light {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.button-light:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.button-dark {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.button-dark:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.text-link {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--white);
+    font-size: 11px;
+    transition: color var(--transition);
+}
+
+.text-link:hover {
+    color: var(--secondary-color);
+}
+
+.light-link {
+    color: var(--white);
+}
+
+/* INTRODUCTION */
+
+.intro-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.intro-grid > div {
+    width: 100%;
+}
+
+.intro-grid h2 {
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+.intro-grid h2 {
+    max-width: 800px;
+    margin-bottom: 28px;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -2px;
+}
+
+.intro-grid h2 em {
+    color: var(--secondary-color);
+}
+
+/* EXPERIENCE CARDS */
+
+.experience-section {
+    background-color: var(--primary-color);
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--gap-30);
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    margin-top: 20px;
+    font-size: clamp(42px, 6vw, 72px);
+    letter-spacing: -2px;
+}
+
+.section-heading h2 em {
+    color: var(--secondary-color);
+}
+
+.card-grid {
+    display: grid;
+    gap: var(--gap-30);
+}
+
+.card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.image-card {
+    position: relative;
+    min-height: 460px;
+    overflow: hidden;
+}
+
+.image-card::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(7, 23, 37, 0.95), transparent 75%);
+    content: "";
+}
+
+.image-card img {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.image-card-content {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 28px;
+    left: 25px;
+}
+
+.image-card-content span,
+.instructor span {
+    color: var(--secondary-color);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.image-card-content h3 {
+    margin-top: 12px;
+    font-size: 27px;
+}
+
+.image-card-content p {
+    margin-block: 12px 20px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+}
+
+/* SPLIT FEATURE */
+
+.split-feature {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: var(--gap-30);
+    padding: 5%;
+    background: var(--linear-gradient);
+}
+
+.split-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    -webkit-mask-image:
+        linear-gradient(to right, transparent 0%, #000 22%, #000 78%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+        linear-gradient(to right, transparent 0%, #000 22%, #000 78%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-composite: intersect;
+}
+
+.split-copy {
+    text-align: center;
+}
+
+.split-copy h2 {
+    margin-block: 22px;
+    font-size: clamp(42px, 5vw, 65px);
+}
+
+.split-copy h2 em {
+    color: var(--secondary-color);
+}
+
+.split-feature .button {
+    margin-top: 20px;
+}
+
+
+/* INSTRUCTORS */
+
+.instructor-section {
+    background: var(--black);
+}
+
+.section-note {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 12px;
+    padding: 0 5% 5% 5%;
+}
+.note-adjustment-top {
+    padding-bottom: 0;
+}
+.note-adjustment-buttom {
+    padding-top: 0;
+}
+
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-30);
+}
+
+.instructor img {
+    height: 360px;
+    margin-bottom: 20px;
+    filter: saturate(0.7);
+}
+
+.instructor h3 {
+    margin-block: 8px;
+    font-size: 23px;
+}
+
+.instructor p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+}
+
+.center-action {
+    margin-top: 45px;
+    text-align: center;
+}
+
+/* FOOTER */
+
+.site-footer {
+    padding-top: 65px;
+    background: var(--black);
+}
+
+.footer-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-30);
+    padding-bottom: 55px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-30);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 20px;
+    border-top: 1px solid var(--border-color);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 9px;
+}
+
+
+/* ========================================
+   SERVICES PAGE
+======================================== */
+
+/* SERVICE LIST */
+.service-row {
+    width: 100%;
+    min-width: 0;
+    padding: 5%;
+}
+
+.booking-trigger {
+    border: 0;
+    border-bottom: 1px solid var(--secondary-color);
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+
+/* BOOKING SECTION */
+
+.booking-section {
+    background: var(--linear-gradient);
+}
+
+.booking-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: start;
+    gap: var(--gap-30);
+}
+
+.booking-layout h2 {
+    margin-block: 25px;
+    font-size: clamp(42px, 5vw, 65px);
+    letter-spacing: -2px;
+}
+
+.booking-layout h2 em {
+    color: var(--secondary-color);
+}
+
+.booking-note {
+    max-width: 420px;
+    margin-top: 30px;
+    padding: 18px;
+    border-left: 2px solid var(--secondary-color);
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 11px;
+}
+
+/* BOOKING FORM */
+
+.booking-form {
+    display: grid;
+    gap: var(--gap-30);
+}
+
+.booking-form label {
+    display: grid;
+    gap: var(--gap-30);
+    color: var(--white);
+    font-size: 11px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    font: inherit;
+    font-size: 12px;
+}
+
+.booking-form select option {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.booking-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    border-color: var(--secondary-color);
+}
+
+.form-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-30);
+}
+
+.booking-form .button {
+    width: fit-content;
+    border: 0;
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+
+.form-status {
+    min-height: 20px;
+    color: var(--secondary-color);
+    font-size: 12px;
+}
+
+/* SERVICES TABLE */
+
+.services-table-wrap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 55px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    border-top: 1px solid var(--border-color);
+}
+
+.services-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.services-table th,
+.services-table td {
+  padding: 24px 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.services-table th {
+  background: var(--black);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.services-table td {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.7;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.services-table tbody tr {
+  background: var(--primary-color);
+  transition: background-color 0.25s ease;
+}
+
+.services-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.services-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.services-table th:nth-child(1) {
+  width: 20%;
+}
+
+.services-table th:nth-child(2) {
+  width: 32%;
+}
+
+.services-table th:nth-child(3) {
+  width: 28%;
+}
+
+.services-table th:nth-child(4) {
+  width: 20%;
+}
+
+.service-number {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--secondary-color);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.service-name {
+  display: block;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.table-details {
+  display: grid;
+  gap: var(--gap-30);
+  margin: 0;
+  padding-left: 16px;
+}
+
+.services-table .booking-trigger {
+  margin-top: 2px;
+  white-space: normal;
+  text-align: left;
+}
+
+
+/* ========================================
+   ACADEMY COURSE CARDS
+======================================== */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap-30);
+    padding: 5%;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    background: var(--primary-color);
+    transition: border-color var(--transition);
+}
+
+.course-card:hover {
+    border-color: var(--secondary-color);
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.course-meta span {
+    color: var(--secondary-color);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.course-card h3 {
+    margin-top: 28px;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.course-description {
+    margin-top: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.course-details {
+    display: grid;
+    gap: 18px;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.course-details div {
+    display: grid;
+    gap: 5px;
+}
+
+.course-details span,
+.course-price > span {
+    color: var(--secondary-color);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.course-details strong {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.course-price {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.course-price strong {
+    color: var(--white);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.course-price small {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+
+/* ========================================
+   ABOUT PAGE
+   Developed by Synth Ocean
+======================================== */
+
+
+/* COMPANY STORY */
+
+.about-story {
+    background: var(--primary-color);
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap-30);
+}
+
+.about-story-item {
+    min-width: 0;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-story-number {
+    color: var(--secondary-color);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.about-story-item h3 {
+    margin-block: 28px 18px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.about-story-item p {
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.about-story-item, .about-value {
+    transition: border-color 0.5s ease;
+}
+.about-story-item:hover, .about-value:hover {
+    border-top-color: var(--secondary-color);
+}
+
+/* COMPANY VALUES */
+
+.about-values {
+    background: var(--linear-gradient);
+}
+
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gap-30);
+}
+
+.about-value {
+    min-width: 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-value > span {
+    color: var(--secondary-color);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.about-value h3 {
+    margin-block: 24px 14px;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.about-value p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* ABOUT TEAM */
+
+.about-team-section {
+    background: var(--black);
+}
+
+.instructor-grid.about-team {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.about-team .instructor {
+    min-width: 0;
+}
+
+.about-team .instructor img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.about-team .instructor h3 {
+    font-size: 19px;
+}
+
+.about-team .instructor p {
+    line-height: 1.7;
+}
+
+
+/* CONTACT */
+
+/* Contact page active navigation exception */
+.main-nav .nav-contact.active {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white);
+}
+.main-nav .nav-contact.active::after {
+    display: none;
+}
+
+.contact-section {
+    background: var(--linear-gradient);
+}
+
+.contact-inline-link {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    text-underline-offset: 3px;
+}
+
+.contact-links {
+    display: grid;
+    gap: 0;
+    max-width: 440px;
+    margin-top: 38px;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-links a {
+    display: grid;
+    gap: 5px;
+    padding-block: 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-links span {
+    color: var(--secondary-color);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.contact-links strong {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.contact-links a:hover strong {
+    color: var(--secondary-color);
+}
+
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1024px) {
+    :root {
+        --section-spacing: 80px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .intro-grid {
+        gap: 35px;
+    }
+
+    .split-feature {
+        gap: 45px;
+    }
+
+    .image-card {
+        min-height: 400px;
+    }
+
+    .instructor img {
+        height: 290px;
+    }
+
+    /* ACADEMY RESPONSIVE */
+    .course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* About */
+    .about-story-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .instructor-grid.about-team {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 40px;
+    }
+
+    .about-team .instructor img {
+        height: 320px;
+    }
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 72px;
+        --section-spacing: 70px;
+    }
+
+    .wrap {
+        width: min(calc(100% - 40px), var(--container-width));
+    }
+
+    .site-header {
+        padding-inline: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 15px 20px 25px;
+        background: var(--primary-color);
+    }
+
+    .main-nav.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-nav a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .main-nav a.active::after {
+        display: none;
+    }
+
+    .main-nav .nav-contact {
+        margin-top: 15px;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero-content {
+        padding-block: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(65px, 16vw, 100px);
+        letter-spacing: -4px;
+    }
+
+    .hero-actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-grid.three {
+        grid-template-columns: 1fr;
+    }
+
+    .image-card {
+        min-height: 450px;
+    }
+
+    .split-feature {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .split-image {
+        height: 400px;
+    }
+
+    .instructor-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .instructor img {
+        height: 420px;
+    }
+
+    .footer-main {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+
+    /* TABLE */
+
+    .intro-grid > .service-row {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+
+    /* BOOKING */
+
+    .booking-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .booking-form {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .form-two {
+        grid-template-columns: 1fr;
+        gap: var(--gap-30);
+    }
+
+    .booking-form .button {
+        width: 100%;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* ACADEMY */
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        padding: 25px;
+    }
+
+    .course-description {
+        min-height: auto;
+    }
+
+    /* About */
+    .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-story-item h3 {
+        margin-top: 20px;
+    }
+
+    .about-values-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .instructor-grid.about-team {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 20px;
+    }
+
+    .about-team .instructor img {
+        height: 300px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+    .brand {
+        font-size: 14px;
+    }
+
+    .brand-mark {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero {
+        min-height: 620px;
+    }
+
+    .hero h1 {
+        font-size: 62px;
+    }
+
+    .image-card {
+        min-height: 400px;
+    }
+
+    .split-image {
+        height: 320px;
+    }
+
+    .instructor img {
+        height: 350px;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .booking-layout {
+        gap: 35px;
+    }
+
+    .booking-layout h2 {
+        font-size: 42px;
+    }
+
+    .booking-form {
+        gap: 22px;
+    }
+
+    /* About */
+    .instructor-grid.about-team {
+        grid-template-columns: 1fr;
+    }
+
+    .about-team .instructor img {
+        height: 400px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
